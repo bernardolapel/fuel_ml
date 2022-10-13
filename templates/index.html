@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF_8">
+   
+   <! Make it compatible to mobile devices>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <title>CO2 Prediction</title>
+   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">   
+  
+</head>
+
+<body style="background-color:rgba(201, 76, 76, 0.3);">
+ <div class="login">
+    <h1>Predict CO2 Emission of Vehicles</h1>
+	<h2>Enter the following values to Predict the CO2 Emission from the Vehicle</h1>
+	
+	<! -- Main Input for Receiving Query to our ML 
+	Action is where the data is sent. In our case, predict page
+	If action is omitted, it assumed to be the current page -->
+	<form action="{{url_for('predict')}}"method="post">
+		<input type="text" name="enginesize" placeholder="Engine size" required="required" />
+		<input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+		<input type="text" name="fuel" placeholder="Fuel" required="required" />
+		
+		<button type="submit" class="btn">Predict CO2 Emission</button>
+	</form>
+   
+   <br>
+   <br>
+   {{ prediction_text }}
+   
+  </div>
+  
+ </body>
+ </html>
