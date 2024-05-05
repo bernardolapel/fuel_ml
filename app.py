@@ -2,6 +2,7 @@
 Application that predicts Carbon emission from vehicles based on the engine size, 
 number of cylinders and fuel consumption.
 """
+% pip install Flask
 import numpy as np
 from flask import Flask, request, render_template
 import pickle
